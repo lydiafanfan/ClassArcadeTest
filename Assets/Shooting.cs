@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 {
   public Transform shootPoint;
   public GameObject laserPrefab;
-  public float laserForce = 20f;
+  public float speed = 20f;
 
     // Update is called once per frame
     void Update()
@@ -21,7 +21,7 @@ void Shoot(){
     GameObject laser = Instantiate(laserPrefab, shootPoint.position, shootPoint.rotation);
     Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
     //add speed
-    rb.AddForce(shootPoint.up*laserForce, ForceMode2D.Impulse);
+    rb.AddForce(shootPoint.up*speed, ForceMode2D.Impulse);
 
 
 }

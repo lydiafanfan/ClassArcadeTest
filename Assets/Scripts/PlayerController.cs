@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D body;
     Animator anim;
     public float speed = 1;
+    public GameObject laserPrefab;
 
     void Start()
     {
@@ -42,5 +43,12 @@ public class PlayerController : MonoBehaviour
             xInput * speed,
             yInput * speed
         ));
+
+         if(Input.GetButtonDown("Fire1"))
+        {
+            GameObject laserObject = GameObject.Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            PlayerLaserController laserScript = laserObject.GetComponent<PlayerLaserController>();
+            laserScript.SetRotation(transform.rotation);
+        }
     }
 }

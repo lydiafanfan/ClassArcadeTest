@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
         {
             health -= damage;
             if (health <= 0){
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
+            SceneManager.LoadScene("Gameover");
+        }
         }
 
 
